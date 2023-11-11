@@ -56,12 +56,19 @@ while escolha != "n":
         print()
         letra = input("Digite uma letra: ")
 
+        while len(letra) > 1:
+            print()
+            print("Não e permitido digita mais de uma letra por vez")
+            letra = input("Digite uma letra: ")
+
+
         while letra in letras_escolhidas:
             print("Esta letra já foi utilizada tente novamente")
-            letra = input("Digite uma letra: ")
             print()
+            letra = input("Digite uma letra: ")
 
         if letra in palavra_secreta:
+            print()
             print("Letra Correta !!")
 
             for i in range(len(estado_atual)):
@@ -71,10 +78,12 @@ while escolha != "n":
             letras_escolhidas.append(letra)
             print(estado_atual)
             print()
+            print("Você já usou estas letras: ", letras_escolhidas)
 
         else:
             tentativas -= 1
             letras_escolhidas.append(letra)
+            print()
             print("você errou !!")
             print("Ainda restam ", tentativas, "tentativas")
             print("Você já usou estas letras: ", letras_escolhidas)
